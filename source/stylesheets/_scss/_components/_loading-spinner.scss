@@ -1,0 +1,95 @@
+//Loading Spinner
+$loading-spinner:$accent-3;
+$svg-size: 96px;
+$offset: 430;
+$duration: 2s;
+
+.spinner-lg svg {
+    width: $svg-size;
+    height: $svg-size;
+    animation: rotator ($duration/2) linear infinite;
+}
+
+.spinner-md svg {
+    width: ($svg-size/2);
+    height: ($svg-size/2);
+    animation: rotator ($duration/3) linear infinite;
+    .path {
+        animation: dash-75 $duration ease-in-out infinite,
+    }
+}
+
+.spinner-sm svg {
+    width: ($svg-size/6);
+    height: ($svg-size/6);
+    animation: rotator ($duration/4) linear infinite;
+    .path {
+        animation: dash-100 $duration ease-in-out infinite,
+    }
+}
+
+
+.spinner-svg {
+  .ring {
+      stroke: $loading-spinner;
+      opacity: .1;
+      stroke-width: 10%;
+  }
+  .path {
+      stroke-dasharray: $offset;
+      stroke-dashoffset: 360;
+      transform-origin: center;
+      stroke: $loading-spinner;
+      animation: dash-50 $duration ease-in-out infinite,
+  }
+}
+
+///////////////Rotating Spinner
+@keyframes rotator {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+///////////////////To 50%
+@keyframes dash-50 {
+    0% {
+        stroke-dashoffset: 285;
+    }
+    50% {
+        stroke-dashoffset: 380;
+        // stroke-dashoffset: 360;
+    }
+    100% {
+        stroke-dashoffset: 285;
+    }
+}
+
+/////////////////To 75%
+@keyframes dash-75 {
+    0% {
+        stroke-dashoffset: 380;
+    }
+    50% {
+        stroke-dashoffset: $offset/2;
+    }
+    100% {
+        stroke-dashoffset: 380;
+    }
+}
+
+//////////////////To 100%
+@keyframes dash-100 {
+    0% {
+        stroke-dashoffset: 430;
+    }
+    50% {
+        stroke-dashoffset: 146;
+    }
+    100% {
+        stroke-dashoffset: 430;
+    }
+}

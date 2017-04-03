@@ -1,0 +1,87 @@
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+ul,
+ol {
+    margin: $base-unit 0 ($base-unit*2) 0;
+    padding: 0 0 0 ($base-unit*2);
+}
+li {
+  position: relative;
+  padding-left: ($base-unit*3);
+  margin-bottom: $base-unit;
+}
+ul {
+    list-style:none;
+    li {
+      &:after {
+        content:"";
+        position: absolute;
+        left:0;
+        //Calculated with ems -- Touchy, Line-height breaks it
+        // top: 0.4375em;
+        // height: 0.3125em;
+        // width: 0.3125em;
+
+        //Calculated with hard pixels
+        top: (24px / 2) - 3px; //half of the line height minus half of circle height
+        height:6px;
+        width:6px;
+        border-radius: 100%;
+        //This should be an SVG so it could change color with text
+        background-color: $text-color;
+
+      }
+    }
+    ul li:after {
+      border:solid 1px $text-color;
+      background-color: transparent;
+    }
+}
+ol {
+  list-style: none;
+  //reset list count on ever ol element
+  counter-reset: list;
+  li {
+    counter-increment: list;
+    &:after {
+      content: counter(list) ".";
+      position: absolute;
+      left:0;
+      line-height: ($base-unit*3);
+    }
+  }
+}
+
+ul.list-unstyled {
+  margin: 0;
+  li {
+    padding-left: 0;
+    &:after {
+      position: inherit;
+      width:0;
+      height: 0;
+      display: none;
+    }
+  }
+}
+
+ul.list-inline {
+  margin:0;
+  padding:0;
+  li {
+    padding-right: $base-unit;
+    padding-left: 0;
+    margin-bottom:0;
+    display: inline-block;
+    &:after {
+      position: inherit;
+      width:0;
+      height: 0;
+      display: none;
+    }
+    &:last-child {
+      padding-right: none;
+    }
+  }
+}

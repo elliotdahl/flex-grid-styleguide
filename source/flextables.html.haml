@@ -1,0 +1,635 @@
+---
+title: 8 Gauge Styleguide
+---
+
+.page
+  %section.mbn
+    .section-content.margin-auto.txt-c
+      %h1.mvxl Flex Tables & HTML Tables
+      %p.sg.type-lg.mbxl
+        This CSS api is meant to apply to standard HTML tables as well as divs assigned classes to make them act in a similar way. Since the CSS based system is based in the
+        %a{:href => "/flexboxgrid.html"} Flex Grid System
+        I've named these Flex Tables. This unlocks all of the basic functionalities of tables with a few powerups from flexbox.
+      .grid.margin-auto.txt-l.type-lg{:style => "max-width:800px;"}
+        .col.col-12
+          .em-high Use Flex Tables
+          %ul
+            %li Complex interactions (links & more...)
+            %li Building components into tables
+            %li Concerned about responsive
+        .col.col-12
+          .em-high Use HTML Tables
+          %ul
+            %li Large sets of data
+            %li Minimal interaction
+            %li Conventional accessibility
+  %section
+    .section-content.margin-auto
+      %h2.mbxl.txt-c#table-basic The Basics
+      %p.sg.type-lg.mbxl.txt-c
+        All tables start with the
+        %code .table
+        class. These examples have a
+        %code .box-shadow-key-1
+        to set them off from the background.  You can see the
+        %a{:href => "/flexboxgrid.html"} Flex Grid
+        alignment classes at work in this example. Both tables can utilize the
+        %code .type-ellipsis
+        class to obscure runaway content. The CSS table will require a fixed width or percentage width to the column if you want to truncate content in it. The HTML table has a similar requirement but it has been baked with the
+        %code table-layout:fixed;
+        CSS property.
+      .grid
+        .col.col-12
+          %h3.txt-c.em-high CSS
+          .table.box-shadow-key-1
+            .tr.grid
+              .th.col.col-6
+                Head
+              .th.col.col-4
+                Head
+              .th.col.col-4
+                Head
+              .th.col.col-6
+                Head
+              .th.col.col-4
+                Head
+            .tr.grid
+              .td.col.col-6
+                %div Cell 1
+                %div Cell 1.2
+              .td.col.col-4
+                %div Cell 2
+                %div Cell 2.1
+                %div Cell 2.2
+              .td.col.col-4.col-top
+                %code .col-top
+
+              .td.col.col-6.col-bottom
+                %code .col-bottom
+              .td.col.col-4
+                Cell 5
+            .tr.grid
+              .td.col.col-6
+                Cell 1
+              .td.col.col-4
+                %div Cell 2
+                %div Cell 2.2
+              .td.col.col-4
+                .type-ellipsis
+                  Ellipsis-example-HotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlinebling
+              .td.col
+                Cell 4 + 5 (auto width)
+
+        .col.col-12
+          %h3.txt-c.em-high HTML
+          %table.table.box-shadow-key-1
+            %tr
+              %th{:width => "25%"} Head
+              %th{:width => "16.667%"} Head
+              %th{:width => "16.667%"}  Head
+              %th{:width => "25%"} Head
+              %th{:width => "16.667%"}  Head
+            %tr
+              %td
+                %div Cell 1
+                %div Cell 1.2
+              %td
+                %div Cell 2
+                %div Cell 2.1
+                %div Cell 2.2
+              %td
+                Cell 3
+              %td
+                Cell 4
+              %td
+                Cell 5
+
+            %tr
+              %td
+                Cell 1
+              %td
+                %div Cell 2
+                %div Cell 2.2
+              %td
+                .type-ellipsis
+                  Ellipsis-example-HotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlineblingHotlinebling
+              %td{:colspan => "2"}
+                Cell 4 + 5 (colspan 2)
+
+
+
+      %h2.txt-c.mvxl#table-hovers Table Hovers
+      %p.sg.type-lg.txt-c.mbxl
+        The default table has no hover. The
+        %code .tr-hover
+        class can be applied to the entire table or a specific row to enable the hover.
+      .grid
+        .col.col-12
+          %h3.txt-c.em-high CSS
+          .table
+            .tr.grid
+              .th.col
+                Header 1
+              .th.col
+                Header 2
+              .th.col
+                Header 3
+
+            .tr.grid.tr-hover
+              .td.col
+                %code .tr.tr-hover
+              .td.col
+                Cell 2
+              .td.col
+                Cell 3
+            .tr.grid.tr-hover
+              .td.col
+                Cell 1
+              .td.col
+                Cell 2
+              .td.col
+                Cell 3
+
+        .col.col-12
+          %h3.txt-c.em-high HTML
+          %table.table
+            %tr
+              %th
+                Header 1
+              %th
+                Header 2
+              %th
+                Header 3
+            %tr.tr-hover
+              %td
+                %code tr.tr-hover
+              %td
+                Cell 2
+              %td
+                Cell 3
+            %tr.tr-hover
+              %td
+                Cell 1
+              %td
+                Cell 2
+              %td
+                Cell 3
+
+      %p.sg.type-lg.txt-c.mvxl
+        Individual cell hover higlights by adding
+        %code .td-hover
+        to the
+        %code .table
+        element.
+      .grid
+        .col.col-12
+          %h3.txt-c.em-high CSS
+          .table.td-hover
+            .tr.grid
+              .th.col
+                Header 1
+              .th.col
+                Header 2
+              .th.col
+                Header 3
+            .tr.grid
+              .td.col
+                %code .table.td-hover
+              .td.col
+                Cell 2
+              .td.col
+                Cell 3
+
+            .tr.grid
+              .td.col
+                Cell 1
+              .td.col
+                Cell 2
+              .td.col
+                Cell 3
+
+        .col.col-12
+          %h3.txt-c.em-high HTML
+          %table.table.td-hover
+            %tr
+              %th
+                Header 1
+              %th
+                Header 2
+              %th
+                Header 3
+            %tr
+              %td
+                %code table.td-hover
+              %td
+                Cell 2
+              %td
+                Cell 3
+            %tr
+              %td
+                Cell 1
+              %td
+                Cell 2
+              %td
+                Cell 3
+      %h2.txt-c.mvxl#table-borders Table Borders
+      %p.sg.type-lg.txt-c.mbxl
+        No internal side borders to cells using class
+        %code .tr-no-h-borders
+        on the
+        %code .tr
+        %code tr
+        or
+        %code .table
+        %code table
+        elements.
+      .grid
+        .col.col-12
+          %h3.txt-c.em-high CSS
+          .table.tr-no-h-borders
+            .tr.grid
+              .th.col
+                Header 1
+              .th.col
+                Header 2
+              .th.col
+                Header 3
+            .tr.grid
+              .td.col
+                Cell 1
+              .td.col
+                Cell 2
+              .td.col
+                Cell 3
+            .tr.grid
+              .td.col
+                Cell 1
+              .td.col
+                Cell 2
+              .td.col
+                Cell 3
+        .col.col-12
+          %h3.txt-c.em-high HTML
+          %table.table.tr-no-h-borders
+            %tr
+              %th
+                Header 1
+              %th
+                Header 2
+              %th
+                Header 3
+            %tr
+              %td
+                Cell 1
+              %td
+                Cell 2
+              %td
+                Cell 3
+            %tr
+              %td
+                Cell 1
+              %td
+                Cell 2
+              %td
+                Cell 3
+      %p.sg.type-lg.txt-c.mvxl
+        No external borders to rows using class
+        %code .table-no-ext-borders
+        on the
+        %code table
+        element.
+      .grid
+        .col.col-12
+          %h3.txt-c.em-high CSS
+          .table.table-no-ext-borders
+            .tr.grid
+              .th.col
+                Header 1
+              .th.col
+                Header 2
+              .th.col
+                Header 3
+            .tr.grid
+              .td.col
+                Cell 1
+              .td.col
+                Cell 2
+              .td.col
+                Cell 3
+            .tr.grid
+              .td.col
+                Cell 1
+              .td.col
+                Cell 2
+              .td.col
+                Cell 3
+        .col.col-12
+          %h3.txt-c.em-high HTML
+          %table.table.table-no-ext-borders
+            %tr
+              %th
+                Header 1
+              %th
+                Header 2
+              %th
+                Header 3
+            %tr
+              %td
+                Cell 1
+              %td
+                Cell 2
+              %td
+                Cell 3
+            %tr
+              %td
+                Cell 1
+              %td
+                Cell 2
+              %td
+                Cell 3
+
+      %p.sg.type-lg.txt-c.mvxl
+        No borders on anything using
+        %code .table-no-borders
+        on the
+        %code table
+        element.
+      .grid
+        .col.col-12
+          %h3.txt-c.em-high CSS
+          .table.table-no-borders
+            .tr.grid
+              .th.col
+                Header 1
+              .th.col
+                Header 2
+              .th.col
+                Header 3
+            .tr.grid
+              .td.col
+                Cell 1
+              .td.col
+                Cell 2
+              .td.col
+                Cell 3
+            .tr.grid
+              .td.col
+                Cell 1
+              .td.col
+                Cell 2
+              .td.col
+                Cell 3
+        .col.col-12
+          %h3.txt-c.em-high HTML
+          %table.table.table-no-borders
+            %tr
+              %th
+                Header 1
+              %th
+                Header 2
+              %th
+                Header 3
+            %tr
+              %td
+                Cell 1
+              %td
+                Cell 2
+              %td
+                Cell 3
+            %tr
+              %td
+                Cell 1
+              %td
+                Cell 2
+              %td
+                Cell 3
+      %h2.txt-c.mvxl#table-scrollable Table Scrollable
+      %p.sg.type-lg.txt-c.mbxl
+        Create a scrollable table zone by creating a new table for the body and wrap it in a div with
+        %code .table-scrollable
+        to turn that section into a scrollable table. The default height is 164px to show exactly four table rows. Modify the max-height to change the viewable area of the table.
+      .grid
+        .col.col-12
+          %h3.txt-c.em-high CSS
+          .table.mbn
+            .tr.grid
+              .th.col
+                Header 1
+              .th.col
+                Header 2
+              .th.col
+                Header 3
+          .table-scrollable
+            .table.tr-hover
+              .tr.grid
+                .td.col
+                  Cell 1
+                .td.col
+                  Cell 2
+                .td.col
+                  Cell 3
+              .tr.grid
+                .td.col
+                  Cell 1
+                .td.col
+                  Cell 2
+                .td.col
+                  Cell 3
+              .tr.grid
+                .td.col
+                  Cell 1
+                .td.col
+                  Cell 2
+                .td.col
+                  Cell 3
+              .tr.grid
+                .td.col
+                  Cell 1
+                .td.col
+                  Cell 2
+                .td.col
+                  Cell 3
+              .tr.grid
+                .td.col
+                  Cell 1
+                .td.col
+                  Cell 2
+                .td.col
+                  Cell 3
+              .tr.grid
+                .td.col
+                  Cell 1
+                .td.col
+                  Cell 2
+                .td.col
+                  Cell 3
+        .col.col-12
+          %h3.txt-c.em-high HTML
+          %table.table.mbn
+            %tr
+              %th
+                Header 1
+              %th
+                Header 2
+              %th
+                Header 3
+          .table-scrollable
+            %table.table.tr-hover
+              %tr
+                %td
+                  Cell 1
+                %td
+                  Cell 2
+                %td
+                  Cell 3
+              %tr
+                %td
+                  Cell 1
+                %td
+                  Cell 2
+                %td
+                  Cell 3
+              %tr
+                %td
+                  Cell 1
+                %td
+                  Cell 2
+                %td
+                  Cell 3
+              %tr
+                %td
+                  Cell 1
+                %td
+                  Cell 2
+                %td
+                  Cell 3
+              %tr
+                %td
+                  Cell 1
+                %td
+                  Cell 2
+                %td
+                  Cell 3
+              %tr
+                %td
+                  Cell 1
+                %td
+                  Cell 2
+                %td
+                  Cell 3
+
+      %h2.txt-c.mvxl#table-linking Table Linking (CSS Only)
+      %p.sg.type-lg.txt-c.mbxl Row A tags and cell A tags. Apply the proper classes directly to the A tag.
+      .table
+        .tr.grid
+          .th.col.col-2
+            Header 1
+          .th.col.col-2
+            Header 2
+          .th.col.col-4
+            Header 3
+          .th.col.col-8
+            Header 4
+          .th.col.col-8
+            Header 5
+        .tr.grid
+          .td.col.col-2
+            Cell 1
+          .td.col.col-2
+            Cell 2
+          .td.col.col-4
+            Cell 3
+          .td.col.col-8
+            Cell 4
+          %a.td.col.col-8{:href => "#tables", :title => "Everyone Can Read It"}
+            Cell 5 (a tag cell)
+        %a.tr.grid{:href => "#tables", :title => "Everyone Can Read It"}
+
+          .td.col.col-24
+            Cell 1-5 (a tag row with div cell)
+
+      %h2.txt-c.mvxl#table-breaks Table Breaks (CSS Only)
+      %p.sg.type-lg.txt-c.mbxl
+        Large Column breaks (750px) Collapse Rows add
+        %code .table-lg-row
+        to the
+        %code .table
+      .table.table-lg-row
+        .tr.grid
+          .td.col.col-lg.col-2
+            Cell 1
+          .td.col.col-lg.col-2
+            Cell 2
+          .td.col.col-lg.col-4
+            Cell 3
+          .td.col.col-lg.col-8
+            Cell 4
+          .td.col.col-lg.col-8
+            Cell 5
+        .tr.grid
+          .td.col.col-lg.col-2
+            Cell 1
+          .td.col.col-lg.col-2
+            Cell 2
+          .td.col.col-lg.col-4
+            Cell 3
+          .td.col.col-lg.col-8
+            Cell 4
+          .td.col.col-lg.col-8
+            Cell 5
+      %p.sg.type-lg.txt-c
+        Medium Column breaks (620px) Collapse Rows add
+        %code .table-md-row
+        to the
+        %code .table
+      .table.table-md-row
+        .tr.grid
+          .td.col.col-md.col-2
+            Cell 1
+          .td.col.col-md.col-2
+            Cell 2
+          .td.col.col-md.col-4
+            Cell 3
+          .td.col.col-md.col-8
+            Cell 4
+          .td.col.col-md.col-8
+            Cell 5
+        .tr.grid
+          .td.col.col-md.col-2
+            Cell 1
+          .td.col.col-md.col-2
+            Cell 2
+          .td.col.col-md.col-4
+            Cell 3
+          .td.col.col-md.col-8
+            Cell 4
+          .td.col.col-md.col-8
+            Cell 5
+      %p.sg.type-lg.txt-c
+        Small Column breaks (480px) Collapse Rows add
+        %code .table-sm-row
+        to the
+        %code .table
+      .table.table-sm-row
+        .tr.grid
+          .td.col.col-sm.col-2
+            Cell 1
+          .td.col.col-sm.col-2
+            Cell 2
+          .td.col.col-sm.col-4
+            Cell 3
+          .td.col.col-sm.col-8
+            Cell 4
+          .td.col.col-sm.col-8
+            Cell 5
+        .tr.grid
+          .td.col.col-sm.col-2
+            Cell 1
+          .td.col.col-sm.col-2
+            Cell 2
+          .td.col.col-sm.col-4
+            Cell 3
+          .td.col.col-sm.col-8
+            Cell 4
+          .td.col.col-sm.col-8
+            Cell 5

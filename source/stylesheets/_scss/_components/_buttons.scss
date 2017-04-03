@@ -1,0 +1,532 @@
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.btn {
+    display: inline-flex;
+    position: relative;
+    height: ($base-unit*4);
+    padding: 0 ($base-unit*2);
+    vertical-align: middle;
+    color: $btn-default-color;
+    text-align: center;
+    font-size: 14px;
+    font-weight: $btn-font-weight;
+    line-height: ($base-unit*4) - ($btn-border-width*2); //32px - 4px borders
+    letter-spacing: $btn-letter-spacing;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border-radius: $btn-radius;
+    border: $btn-border-width solid transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+    //Transitions
+    -webkit-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+    -webkit-transition-property: background-color, color, opacity, border;
+    transition-property: background-color, color, opacity, border;
+    .icon {
+        font-size: 18px;
+        margin: 0 5px 0 0;
+        fill: $btn-default-color;
+    }
+
+    &:hover,
+    &:focus,
+    &:hover:focus {
+
+        outline: none;
+        .icon {
+
+        }
+    }
+}
+
+.btn.btn-icon {
+    padding: 0;
+    .icon {
+        margin:5px;
+    }
+}
+
+.btn-lg {
+    height: ($base-unit*5);
+    line-height: 36px; //40px - 4px borders
+    font-size: 16px;
+    &.btn-icon {
+        padding: 0;
+        .icon {
+          margin:8px;
+        }
+    }
+    .icon {
+        font-size: 20px;
+    }
+}
+
+.btn-sm {
+    height: ($base-unit*3);
+    line-height: 20px; //24px - 4px borders
+    font-size: 12px;
+    &.btn-icon {
+        padding: 0;
+        .icon {
+          margin: 3px;
+        }
+    }
+    .icon {
+        font-size: 14px;
+    }
+}
+
+.btn.disabled, .btn[disabled] {
+    opacity: .5;
+    cursor: default;
+    pointer-events: none;
+}
+
+//Default Button
+//---------------------------------------
+.btn.btn-default {
+    background-color: $btn-default-color;
+    color: #fff;
+    border-color: $btn-default-color;
+    .icon {
+        fill: #fff;
+    }
+}
+
+.btn.btn-default:focus {
+    background-color: $btn-default-color-focus;
+    border-color: $btn-default-color-focus;
+    outline: none;
+}
+
+.btn.btn-default:hover,
+.btn.btn-default:focus:hover {
+    background-color: $btn-default-color-hover;
+    border-color: $btn-default-color-hover;
+    outline: none;
+}
+
+//Spinner
+.btn.btn-default {
+    .spinner-svg {
+        .ring {
+            stroke: #fff;
+        }
+        .path {
+            stroke: #fff;
+        }
+    }
+}
+
+//Default Alt Button
+//---------------------------------------
+.btn.btn-default-alt,
+{
+    background-color: transparent;
+    color: $btn-default-color;
+    border-color: $btn-default-color;
+    .icon {
+        fill: $btn-default-color;
+    }
+}
+
+.btn.btn-default-alt:focus {
+    background-color: transparent;
+    color: $btn-default-color-focus;
+    border-color: $btn-default-color-focus;
+    outline: none;
+    .icon {
+        fill: $btn-default-color-focus;
+    }
+}
+
+.btn.btn-default-alt:hover,
+.btn.btn-default-alt:focus:hover {
+    background-color: transparent;
+    color: $btn-default-color-hover;
+    border-color: $btn-default-color-hover;
+    outline: none;
+    .icon {
+        fill: $btn-default-color-hover;
+    }
+}
+
+//Spinner
+.btn.btn-default-alt {
+    .spinner-svg {
+        .ring {
+            stroke: $btn-default-color;
+        }
+        .path {
+            stroke: $btn-default-color;
+        }
+    }
+}
+
+//Default Alt Button WHITE
+//---------------------------------------
+.btn.btn-default-alt-wh {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    .icon {
+        fill: #fff;
+    }
+}
+
+.btn.btn-default-alt-wh:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #fff;
+    outline: none;
+    .icon {
+        fill: #fff;
+    }
+}
+
+.btn.btn-default-alt-wh:hover,
+.btn.btn-default-alt-wh:focus:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #fff;
+    outline: none;
+    .icon {
+        fill: #fff;
+    }
+}
+
+//Spinner
+.btn.btn-default-alt-wh {
+    .spinner-svg {
+        .ring {
+            stroke: #fff;
+        }
+        .path {
+            stroke: #fff;
+        }
+    }
+}
+
+//Highlight Button
+//---------------------------------------
+.btn.btn-highlight {
+    background-color: $btn-highlight-color;
+    color: #fff;
+    border-color: $btn-highlight-color;
+    .icon {
+        fill: #fff;
+    }
+}
+
+.btn.btn-highlight:focus {
+    background-color: $btn-highlight-color-focus;
+    border-color: $btn-highlight-color-focus;
+    outline: none;
+}
+
+.btn.btn-highlight:hover,
+.btn.btn-highlight:focus:hover {
+    background-color: $btn-highlight-color-hover;
+    border-color: $btn-highlight-color-hover;
+    outline: none;
+}
+
+//Spinner
+.btn.btn-highlight {
+    .spinner-svg {
+        .ring {
+            stroke: #fff;
+        }
+        .path {
+            stroke: #fff;
+        }
+    }
+}
+
+//Flat Highlight
+.btn-highlight-flat {
+    color: $btn-highlight-color;
+    .icon {
+        fill: $btn-highlight-color;
+    }
+    &:hover,
+    &:focus,
+    &:hover:focus {
+        color: $btn-highlight-color-focus;
+        outline: none;
+        .icon {
+            fill: $btn-highlight-color-focus;
+        }
+    }
+}
+
+//Highlight Alt Button
+//---------------------------------------
+.btn.btn-highlight-alt {
+    background-color: transparent;
+    color: $btn-highlight-color;
+    border-color: $btn-highlight-color;
+    .icon {
+        fill: $btn-highlight-color;
+    }
+}
+
+.btn.btn-highlight-alt:focus {
+    background-color: transparent;
+    color: $btn-highlight-color-focus;
+    border-color: $btn-highlight-color-focus;
+    outline: none;
+    .icon {
+        fill: $btn-highlight-color-focus;
+    }
+}
+
+.btn.btn-highlight-alt:hover,
+.btn.btn-highlight-alt:focus:hover {
+    background-color: transparent;
+    color: $btn-highlight-color-hover;
+    border-color: $btn-highlight-color-hover;
+    outline: none;
+    .icon {
+        fill: $btn-highlight-color-hover;
+    }
+}
+
+//Spinner
+.btn.btn-highlight-alt {
+    .spinner-svg {
+        .ring {
+            stroke: $btn-highlight-color;
+        }
+        .path {
+            stroke: $btn-highlight-color;
+        }
+    }
+}
+
+//Positive Button
+//---------------------------------------
+.btn.btn-positive {
+    background-color: $btn-positive-color;
+    color: #fff;
+    border-color: $btn-positive-color;
+    .icon {
+        fill: #fff;
+    }
+}
+
+.btn.btn-positive:focus {
+    background-color: $btn-positive-color-focus;
+    border-color: $btn-positive-color-focus;
+    outline: none;
+}
+
+.btn.btn-positive:hover,
+.btn.btn-positive:focus:hover {
+    background-color: $btn-positive-color-hover;
+    border-color: $btn-positive-color-hover;
+    outline: none;
+}
+
+.btn.btn-positive {
+    .spinner-svg {
+        .ring {
+            stroke: #fff;
+        }
+        .path {
+            stroke: #fff;
+        }
+    }
+}
+//Flat Positive
+.btn.btn-positive-flat {
+    color: $btn-positive-color;
+    .icon {
+        fill: $btn-positive-color;
+    }
+    &:hover,
+    &:focus,
+    &:hover:focus {
+        color: $btn-positive-color-focus;
+        outline: none;
+        .icon {
+            fill: $btn-positive-color-focus;
+        }
+    }
+}
+//Positive Alt Button
+//---------------------------------------
+.btn.btn-positive-alt {
+    background-color: transparent;
+    color: $btn-positive-color;
+    border-color: $btn-positive-color;
+    .icon {
+        fill: $btn-positive-color;
+    }
+}
+
+.btn.btn-positive-alt:focus {
+    background-color: transparent;
+    color: $btn-positive-color-focus;
+    border-color: $btn-positive-color-focus;
+    outline: none;
+    .icon {
+        fill: $btn-positive-color-focus;
+    }
+}
+
+.btn.btn-positive-alt:hover,
+.btn.btn-positive-alt:focus:hover {
+    background-color: transparent;
+    color: $btn-positive-color-hover;
+    border-color: $btn-positive-color-hover;
+    outline: none;
+    .icon {
+        fill: $btn-positive-color-hover;
+    }
+}
+
+.btn.btn-positive-alt {
+    .spinner-svg {
+        .ring {
+            stroke: $btn-positive-color;
+        }
+        .path {
+            stroke: $btn-positive-color;
+        }
+    }
+}
+
+//Negative Button
+//---------------------------------------
+.btn.btn-negative {
+    background-color: $btn-negative-color;
+    color: #fff;
+    border-color: $btn-negative-color;
+    .icon {
+        fill: #fff;
+    }
+}
+
+.btn.btn-negative:focus {
+    background-color: $btn-negative-color-focus;
+    border-color: $btn-negative-color-focus;
+    outline: none;
+}
+
+.btn.btn-negative:hover,
+.btn.btn-negative:focus:hover {
+    background-color: $btn-negative-color-hover;
+    border-color: $btn-negative-color-hover;
+    outline: none;
+}
+
+.btn.btn-negative {
+    .spinner-svg {
+        .ring {
+            stroke: #fff;
+        }
+        .path {
+            stroke: #fff;
+        }
+    }
+}
+//Flat negative
+.btn.btn-negative-flat {
+    color: $btn-negative-color;
+    .icon {
+        fill: $btn-negative-color;
+    }
+    &:hover,
+    &:focus,
+    &:hover:focus {
+        color: $btn-negative-color-focus;
+        outline: none;
+        .icon {
+            fill: $btn-negative-color-focus;
+        }
+    }
+}
+//negative Alt Button
+//---------------------------------------
+.btn.btn-negative-alt {
+    background-color: transparent;
+    color: $btn-negative-color;
+    border-color: $btn-negative-color;
+    .icon {
+        fill: $btn-negative-color;
+    }
+}
+
+.btn.btn-negative-alt:focus {
+    background-color: transparent;
+    color: $btn-negative-color-focus;
+    border-color: $btn-negative-color-focus;
+    outline: none;
+    .icon {
+        fill: $btn-negative-color-focus;
+    }
+}
+
+.btn.btn-negative-alt:hover,
+.btn.btn-negative-alt:focus:hover {
+    background-color: transparent;
+    color: $btn-negative-color-hover;
+    border-color: $btn-negative-color-hover;
+    outline: none;
+    .icon {
+        fill: $btn-negative-color-hover;
+    }
+}
+
+.btn.btn-negative-alt {
+    .spinner-svg {
+        .ring {
+            stroke: $btn-negative-color;
+        }
+        .path {
+            stroke: $btn-negative-color;
+        }
+    }
+}
+
+//Button Groups
+//---------------------------------------
+.btn-group {
+    .btn:hover {
+        z-index: 2;
+    }
+    .btn+ .btn {
+        margin-left: -2px;
+    }
+    .btn:not(:first-child):not(:last-child) {
+        border-radius: 0;
+    }
+    //First Btn
+    .btn:first-child {
+        border-bottom-left-radius: $btn-radius;
+        border-top-left-radius: $btn-radius;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+    //Last Btn
+    .btn:last-child:not(:first-child) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: $btn-radius;
+        border-top-right-radius: $btn-radius;
+    }
+}
+
+.btn-group-flat {
+    .btn {
+        padding: 0 $base-unit;
+    }
+    .btn-icon {
+        padding: 0 3px;
+    }
+}
