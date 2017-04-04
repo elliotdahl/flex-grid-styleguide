@@ -54,3 +54,20 @@ h2 {
   font-size:16px;
   line-height: 32px;
 }
+.sg-box-outline {
+  border-top:solid 1px $orange-1;
+  border-left:solid 1px $orange-1;
+  border-right:solid 1px $orange-1;
+  height: $base-unit;
+  margin-bottom: $base-unit;
+}
+//Code Area
+pre.code-display {
+  background-color:$dark-3;
+  text-align: left;
+  padding:16px;
+  code {
+    @extend .mono;
+    font-size:16px;
+  }
+}
