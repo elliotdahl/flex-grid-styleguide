@@ -1,6 +1,10 @@
 //Styleguide
 //---------------------------------------------
-
+.devnote {
+  color:red;
+  font-size:18px;
+  @extend .mono;
+}
 
 //Layout
 body {
@@ -14,7 +18,7 @@ body {
   max-width: 960px;
 }
 p {
-  width:600px;
+  max-width:600px;
 }
 
 //Type
