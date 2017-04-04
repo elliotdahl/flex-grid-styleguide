@@ -1,6 +1,5 @@
 applications:
-- name: 8gauge
+- name: flex-grid-styleguide
   memory: 128M
   instances: 1
   buildpack: staticfile_buildpack
-
