@@ -3,6 +3,15 @@
 ###
 
 # Per-page layout changes:
+
+def find_and_preserve(input = nil, tags = haml_buffer.options[:preserve], &block)
+  return find_and_preserve(capture_haml(&block), input || tags) if block
+  re = /<(#{tags.map(&Regexp.method(:escape)).join('|')})([^>]*)>(.*?)(<\/\1>)/im
+  input.to_s.gsub(re) do |s|
+    s =~ re # Can't rely on $1, etc. existing since Rails' SafeBuffer#gsub is incompatible
+    "<#{$1}#{$2}>#{preserve($3)}</#{$1}>"
+  end
+end
 #
 # With no layout
 page '/*.xml', layout: false

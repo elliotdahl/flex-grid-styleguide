@@ -1,0 +1,15 @@
+code[class*="language-"], pre[class*="language-"] {
+  text-shadow: none;
+}
+.token.punctuation {
+  color:$gray-1;
+}
+.token.attr-value {
+  color:$orange-2;
+}
+.token.attr-name {
+  color:$code-green-1;
+}
+.token.tag, .token.property {
+  color:$code-blue-1;
+}

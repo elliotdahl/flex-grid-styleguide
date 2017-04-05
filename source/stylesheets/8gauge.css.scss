@@ -17,7 +17,7 @@
 
 
 ////Vendor---------------------------
-
+@import "_scss/_vendor/prism";
 
 
 ////Components---------------------------
@@ -50,3 +50,4 @@
 //-------------------------------
 @import "_scss/_styleguide/_sg-variables";
 @import "_scss/_styleguide/_styleguide";
+@import "_scss/_styleguide/_sg-prism-overrides";
