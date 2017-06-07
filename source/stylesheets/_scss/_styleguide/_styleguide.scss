@@ -62,6 +62,19 @@ h2 {
   height: $base-unit;
   margin-bottom: $base-unit;
 }
+.sg-grid .col {
+  background-color: $dark-1;
+  width: 100%;
+  min-height: 40px;
+  border-radius: 2px;
+  padding: 8px;
+  margin: 8px;
+  font-size:16px;
+  line-height: 32px;
+  @extend .mono;
+}
+
+
 //Code Area
 pre.code-display {
   margin-top:48px;
