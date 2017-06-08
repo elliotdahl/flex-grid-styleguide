@@ -163,12 +163,12 @@
 /////////////////////////
 //Percent Based Columns
 /////////////////////////
-@for $i from 1 through 24 {
+@for $i from 1 through 12 {
   .col-#{$i} {
-    -ms-flex-preferred-size: (100% / 24) * $i;
-    -webkit-flex-basis: (100% / 24) * $i;
-    flex-basis: (100% / 24) * $i;
-    max-width: (100% / 24) * $i;
+    -ms-flex-preferred-size: (100% / 12) * $i;
+    -webkit-flex-basis: (100% / 12) * $i;
+    flex-basis: (100% / 12) * $i;
+    max-width: (100% / 12) * $i;
   }
 }
 
