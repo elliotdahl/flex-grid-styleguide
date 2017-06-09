@@ -94,7 +94,6 @@ title: 8 Gauge Styleguide
           .sg-box
             .mono .col
 
-      .devnote Look into this sizing calculation
   %section.pvxxxl#fixed-columns
     .section-content.margin-auto.txt-c
       %h2.mbl Fixed Columns
@@ -183,18 +182,6 @@ title: 8 Gauge Styleguide
     .section-content.margin-auto.txt-c
       %h2.mbl Content Alignment
       %p.margin-auto.type-md Align the content inside of a column
-
-      .grid.mvxl
-        .col
-          .sg-box.col-top{:style => "height:96px;"}
-            .mono col-top
-        .col.col-middle
-          .sg-box.col-middle{:style => "height:96px;"}
-            .mono col-middle
-        .col
-          .sg-box.col-bottom{:style => "height:96px;"}
-            .mono col-bottom
-      .devnote Look into a better way to structure the boxes.
       .grid.mvxl.sg-grid
         .col.col-top{:style => "height:96px;"}
           col-top
@@ -202,123 +189,136 @@ title: 8 Gauge Styleguide
           col-middle
         .col.col-bottom{:style => "height:96px;"}
           col-bottom
-      .devnote This works but the margins are weird. What is the best method to do this?
+
   %section.pvxxxl#column-vertical-alignment
     .section-content.margin-auto.txt-c
       %h2.mbl Column Vertical Alignment
       %p.margin-auto.type-md Columns alignment relative to each other
 
-      .grid.mvxl
+      .grid.mvxl.sg-grid
         .col.col-align-top
-          .sg-box
-            .mono col-align-top
+          col-align-top
         .col.col-align-middle
-          .sg-box
-            .mono col-align-middle
+          col-align-middle
         .col.col-align-bottom
-          .sg-box
-            .mono col-align-bottom
+          col-align-bottom
         .col
-          .sg-box
-            .mono Maecenas sed diam eget risus varius blandit sit amet non magna.
-      .devnote Look into lighter color for filler text to downplay importance.
+          Maecenas sed diam eget risus varius blandit sit amet non magna.
+
   %section.pvxxxl#column-horizontal-alignment
     .section-content.margin-auto.txt-c
       %h2.mbl Grid Horizontal Alignment
-      %p.margin-auto.type-md Columns alignment relative to each other
+      %p.margin-auto.type-md Grid alignment of columns
 
-      .grid.mvxl.grid-start
-        .col.col-12
-          .sg-box
-            .mono grid-start col col-12
+      .grid.mvxl.grid-start.sg-grid
+        .col.col-6 .grid-start .col.col-6
       .grid.mvxl.grid-center
-        .col.col-12
-          .sg-box
-            .mono grid-center col col-12
+        .col.col-6 .grid-center .col.col-6
       .grid.mvxl.grid-end
-        .col.col-12
-          .sg-box
-            .mono grid-end col col-12
+        .col.col-6 .grid-end .col.col-6
 
-  %section.pvxxxl#column-horizontal-alignment
+  %section.pvxxxl#column-distribution
     .section-content.margin-auto.txt-c
       %h2.mbl Column Distribution
       %p.margin-auto.type-md Distrubute columns around or between
 
-      .grid.mvxl.grid-around
-        .col.col-fixed
-          .sg-box
-            .mono .grid-around col
-        .col.col-fixed
-          .sg-box
-            .mono .grid-around col
-        .col.col-fixed
-          .sg-box
-            .mono .grid-around col
-      .grid.mvxl.grid-between
-        .col.col-fixed
-          .sg-box
-            .mono grid-between col
-        .col.col-fixed
-          .sg-box
-            .mono grid-between col
-        .col.col-fixed
-          .sg-box
-            .mono grid-between col
-
-
-
-
-
-
-
-
-  %section.pvxxxl
+      .grid.mvxl.grid-around.sg-grid
+        .col.col-fixed .grid-around .col
+        .col.col-fixed .grid-around .col
+        .col.col-fixed .grid-around .col
+      .grid.mvxl.grid-between.sg-grid
+        .col.col-fixed .grid-between .col
+        .col.col-fixed .grid-between .col
+        .col.col-fixed .grid-between .col
+  %section.pvxxxl#column-ordering
     .section-content.margin-auto.txt-c
-      %h2 Experimental
-      .grid.mvxl
-        .col
-          .sg-box
-            .mono .col
-        .col
-          .sg-box
-            .mono .col
+      %h2.mbl Column Ordering
+      %p.margin-auto.type-md Change the order of columns by using modifier classes for first or last.
+
       .grid.mvxl.sg-grid
-        .col.col-grow-2
-          col col-grow-2
-        .col
-          col
-        .col
-          col
+        .col 1
+        .col 2
+        .col 3
       .grid.mvxl.sg-grid
-        .col.col-6 50%
-        .col.col-3 25%
-        .col.col-3 25%
-      -# .grid.mvxl.sg-grid
-      -#   .col.col-6
-      -#     50
-      -#   .col.col-3
-      -#     25
-      -#   .col.col-3
-      -#     25
-      -# .grid.mvxl.sg-grid
-      -#   .col col
-      -# .grid.mvxl.sg-grid
-      -#   .col.col-grow-3
-      -#      col col-grow-3
-      -#   .col
-      -#     col
+        .col 1
+        .col 2
+        .col.col-first .col-first
       .grid.mvxl.sg-grid
-        .col.col-9
-          3/4
-        .col.col-3
-          1/4
+        .col.col-last .col-last
+        .col 2
+        .col 3
+
+      %p.margin-auto.type-md
+        Reverse the order of the grid by using
+        %code .grid-reverse
+
+      .grid.mvxl.sg-grid.grid-reverse
+        .col 1
+        .col 2
+        .col 3
 
 
-      .grid.mvxxxl
+
+  %section.pvxxxl#grid-nesting
+    .section-content.margin-auto.txt-c
+      %h2.mbl Grid Nesting
+      %p.margin-auto.type-md Nest the grids deep for added functionality.
+
+      .grid.mvxl.sg-grid
         .col
-          .sg-box
-            Etiam porta sem malesuada magna mollis euismod. Fusce
         .col
-          .sg-box
-            1/2?
+        .col
+
+  %section.pvxxxl#grid-nesting
+    .section-content.margin-auto.txt-c
+      %h2.mbl Media Break Points
+      %p.margin-auto.type-md Media breakpoint classes define the screen size a column should go to 100%.
+
+      .grid.mvxl.sg-grid
+        .col
+        .col
+        .col
+
+
+
+
+
+
+
+
+
+  -# %section.pvxxxl
+  -#   .section-content.margin-auto.txt-c
+  -#     %h2 Experimental
+  -#     .grid.mvxl
+  -#       .col
+  -#         .sg-box
+  -#           .mono .col
+  -#       .col
+  -#         .sg-box
+  -#           .mono .col
+  -#     .grid.mvxl.sg-grid
+  -#       .col.col-grow-2
+  -#         col col-grow-2
+  -#       .col
+  -#         col
+  -#       .col
+  -#         col
+  -#     .grid.mvxl.sg-grid
+  -#       .col.col-6 50%
+  -#       .col.col-3 25%
+  -#       .col.col-3 25%
+  -#     .grid.mvxl.sg-grid
+  -#       .col.col-9
+  -#         3/4
+  -#       .col.col-3
+  -#         1/4
+  -#
+  -#
+  -#     .grid.mvxxxl
+  -#       .col
+  -#         .sg-box
+  -#           Etiam porta sem malesuada magna mollis euismod. Fusce
+  -#       .col
+  -#         .sg-box
+  -#           1/2?
