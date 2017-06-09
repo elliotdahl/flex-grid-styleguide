@@ -13,87 +13,81 @@ title: 8 Gauge Styleguide
       %h2.mbl The Basic Auto Layout
       %p.margin-auto.type-md Each column inside the grid is automatically assigned an equal share of the total. If I have three columns each one receives a third of the total width. They will do their best to respect their content before the even distribution. Be aware of this with text content by either ensuring it wraps or ellipsizes.
 
-      .grid.mbxl
-        .col
-          .sg-box
-            .mono .col
-        .col
-          .sg-box
-            .mono .col
-        .col
-          .sg-box
-            .mono .col
+      .grid.mbxl.sg-grid
+        .col .col
+        .col .col
+        .col .col
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col
+                Auto Column
+              .col
+                Auto Column
+              .col
+                Auto Column
+            ]).render
+          :preserve
+            #{example_html}
   %section.pvxxxl#percent-columns
     .section-content.margin-auto.txt-c
       %h2.mbl Percentage Based Columns
       %p.margin-auto.type-md Based on the familiar n/12 column system.
 
-      .grid.mvxl
-        .col.col-3
-          .sg-box
-            .mono .col.col-3
-        .col.col-4
-          .sg-box
-            .mono .col.col-4
-        .col.col-5
-          .sg-box
-            .mono .col.col-5
-      .grid.mvxl
-        .col.col-4
-          .sg-box
-            .mono .col.col-4
-        .col.col-4
-          .sg-box
-            .mono .col.col-4
-        .col.col-4
-          .sg-box
-            .mono .col.col-4
-      .grid.mvxl
-        .col.col-5
-          .sg-box
-            .mono .col.col-5
-        .col.col-2
-          .sg-box
-            .mono .col.col-2
-        .col.col-2
-          .sg-box
-            .mono .col.col-2
-        .col.col-3
-          .sg-box
-            .mono .col.col-3
+      .grid.mvxl.sg-grid
+        .col.col-3 .col.col-3
+        .col.col-9 .col.col-9
+      .grid.mvxl.sg-grid
+        .col.col-4 .col.col-4
+        .col.col-4 .col.col-4
+        .col.col-4 .col.col-4
+      .grid.mvxl.sg-grid
+        .col.col-5 .col.col-5
+        .col.col-2 .col.col-2
+        .col.col-2 .col.col-2
+        .col.col-3 .col.col-3
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col.col-3
+                25% (3/12)
+              .col.col-9
+                75% (9/12)
+            ]).render
+          :preserve
+            #{example_html}
   %section.pvxxxl#grow-columns
     .section-content.margin-auto.txt-c
       %h2.mbl Flex Grow Columns
       %p.margin-auto.type-md Based on flex-grow this layout style allows for dynamic content distribution. The flex-grow will attempt to respect it's given ratio until the content of the column exceeds its parameters. This is the only reason a flex-grow based column will ever drop onto another row.
 
-      .grid.mvxl
-        .col.col-grow-2
-          .sg-box
-            .mono .col.col-grow-2
-        .col
-          .sg-box
-            .mono .col
-        .col
-          .sg-box
-            .mono .col
-      .grid.mvxl
-        .col.col-grow-3
-          .sg-box
-            .mono .col.col-grow-3
-        .col.col-grow-2
-          .sg-box
-            .mono .col.col-grow-2
-        .col
-          .sg-box
-            .mono .col
-      .grid.mvxl
-        .col.col-grow-3
-          .sg-box
-            .mono .col.col-grow-3
-        .col
-          .sg-box
-            .mono .col
-
+      .grid.mvxl.sg-grid
+        .col.col-grow-2 .col.col-grow-2
+        .col .col
+        .col .col
+      .grid.mvxl.sg-grid
+        .col.col-grow-3 .col.col-grow-3
+        .col.col-grow-2 .col.col-grow-2
+        .col .col
+      .grid.mvxl.sg-grid
+        .col.col-grow-3 .col.col-grow-3
+        .col .col
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col.col-grow-3
+                Grow 3 Columns
+              .col
+                Auto Column
+            ]).render
+          :preserve
+            #{example_html}
   %section.pvxxxl#fixed-columns
     .section-content.margin-auto.txt-c
       %h2.mbl Fixed Columns
@@ -105,16 +99,10 @@ title: 8 Gauge Styleguide
         .col
           .mono.type-orange-1 Auto Width
           .sg-box-outline
-      .grid
-        .col.col-fixed{:style => "width:168px;"}
-          .sg-box
-            .mono col col-fixed
-        .col
-          .sg-box
-            .mono col
-        .col
-          .sg-box
-            .mono col
+      .grid.sg-grid
+        .col.col-fixed{:style => "width:168px;"} .col.col-fixed
+        .col .col
+        .col .col
       %pre.language-markup.code-display
         %code.language-markup
           :ruby
@@ -140,16 +128,10 @@ title: 8 Gauge Styleguide
         .col
           .mono.type-orange-1 Dynamic Width
           .sg-box-outline
-      .grid.mbxl
-        .col.col-fixed{:style => "width:168px;"}
-          .sg-box
-            .mono .col.col-fixed
-        .col.col-grow-2
-          .sg-box
-            .mono .col.col-grow-2
-        .col
-          .sg-box
-            .mono .col
+      .grid.mbxl.sg-grid
+        .col.col-fixed{:style => "width:168px;"} .col.col-fixed
+        .col.col-grow-2 .col.col-grow-2
+        .col .col
 
       .grid.mtxl
         .col.col-fixed{:style => "width:168px;"}
@@ -161,23 +143,27 @@ title: 8 Gauge Styleguide
         .col.col-3
           .mono.type-orange-1 25% of Total Width
           .sg-box-outline
-      .grid.mbxl
-        .col.col-fixed{:style => "width:168px;"}
-          .sg-box
-            .mono .col.col-fixed
-        .col.col-grow-2
-          .sg-box
-            .mono .col.col-grow-2
-        .col
-          .sg-box
-            .mono .col
-        .col.col-3
-          .sg-box
-            .mono .col.col-3
-
-
-
-
+      .grid.mbxl.sg-grid
+        .col.col-fixed{:style => "width:168px;"} .col.col-fixed
+        .col.col-grow-2 .col.col-grow-2
+        .col .col
+        .col.col-3 .col.col-3
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col.col-fixed{:style => "width:168px;"}
+                Fixed Column
+              .col.col-grow-2
+                Grow 2 Column
+              .col
+                Auto Column
+              .col.col-3
+                25% (3/12)
+            ]).render
+          :preserve
+            #{example_html}
   %section.pvxxxl#content-alignment
     .section-content.margin-auto.txt-c
       %h2.mbl Content Alignment
@@ -189,7 +175,20 @@ title: 8 Gauge Styleguide
           col-middle
         .col.col-bottom{:style => "height:96px;"}
           col-bottom
-
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col.col-top{:style => "height:96px;"}
+                Content aligned to top
+              .col.col-middle{:style => "height:96px;"}
+                Content aligned to middle
+              .col.col-bottom{:style => "height:96px;"}
+                Content aligned to bottom
+            ]).render
+          :preserve
+            #{example_html}
   %section.pvxxxl#column-vertical-alignment
     .section-content.margin-auto.txt-c
       %h2.mbl Column Vertical Alignment
@@ -204,7 +203,20 @@ title: 8 Gauge Styleguide
           col-align-bottom
         .col
           Maecenas sed diam eget risus varius blandit sit amet non magna.
-
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col
+                Auto Column
+              .col
+                Auto Column
+              .col
+                Auto Column
+            ]).render
+          :preserve
+            #{example_html}
   %section.pvxxxl#column-horizontal-alignment
     .section-content.margin-auto.txt-c
       %h2.mbl Grid Horizontal Alignment
@@ -212,11 +224,24 @@ title: 8 Gauge Styleguide
 
       .grid.mvxl.grid-start.sg-grid
         .col.col-6 .grid-start .col.col-6
-      .grid.mvxl.grid-center
+      .grid.mvxl.grid-center.sg-grid
         .col.col-6 .grid-center .col.col-6
-      .grid.mvxl.grid-end
+      .grid.mvxl.grid-end.sg-grid
         .col.col-6 .grid-end .col.col-6
-
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col
+                Auto Column
+              .col
+                Auto Column
+              .col
+                Auto Column
+            ]).render
+          :preserve
+            #{example_html}
   %section.pvxxxl#column-distribution
     .section-content.margin-auto.txt-c
       %h2.mbl Column Distribution
@@ -230,6 +255,20 @@ title: 8 Gauge Styleguide
         .col.col-fixed .grid-between .col
         .col.col-fixed .grid-between .col
         .col.col-fixed .grid-between .col
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col
+                Auto Column
+              .col
+                Auto Column
+              .col
+                Auto Column
+            ]).render
+          :preserve
+            #{example_html}
   %section.pvxxxl#column-ordering
     .section-content.margin-auto.txt-c
       %h2.mbl Column Ordering
@@ -247,7 +286,20 @@ title: 8 Gauge Styleguide
         .col.col-last .col-last
         .col 2
         .col 3
-
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col
+                Auto Column
+              .col
+                Auto Column
+              .col
+                Auto Column
+            ]).render
+          :preserve
+            #{example_html}
       %p.margin-auto.type-md
         Reverse the order of the grid by using
         %code .grid-reverse
@@ -256,9 +308,20 @@ title: 8 Gauge Styleguide
         .col 1
         .col 2
         .col 3
-
-
-
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col
+                Auto Column
+              .col
+                Auto Column
+              .col
+                Auto Column
+            ]).render
+          :preserve
+            #{example_html}
   %section.pvxxxl#grid-nesting
     .section-content.margin-auto.txt-c
       %h2.mbl Grid Nesting
@@ -268,7 +331,20 @@ title: 8 Gauge Styleguide
         .col
         .col
         .col
-
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col
+                Auto Column
+              .col
+                Auto Column
+              .col
+                Auto Column
+            ]).render
+          :preserve
+            #{example_html}
   %section.pvxxxl#grid-nesting
     .section-content.margin-auto.txt-c
       %h2.mbl Media Break Points
@@ -278,15 +354,20 @@ title: 8 Gauge Styleguide
         .col
         .col
         .col
-
-
-
-
-
-
-
-
-
+      %pre.language-markup.code-display
+        %code.language-markup
+          :ruby
+            example_html = h Haml::Engine.new( %[
+            .grid
+              .col
+                Auto Column
+              .col
+                Auto Column
+              .col
+                Auto Column
+            ]).render
+          :preserve
+            #{example_html}
   -# %section.pvxxxl
   -#   .section-content.margin-auto.txt-c
   -#     %h2 Experimental
