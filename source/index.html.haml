@@ -11,7 +11,7 @@ title: Flex Grid Lite
         Flex Grid Lite is a lightweight column grid with all the power of flexbox. Built using a
         %a{:href => "http://www.jon.gold/2015/07/functional-css/", :target => "_blank"} functional CSS
         approach which means you get exactly what you ask for without any hidden surprises. The resulting file size is far smaller than a traditional column grid.
-      %a.btn.btn-highlight-alt.btn-lg.mtxl{:href => "https://github.com/", :target => "_blank"}
+      %a.btn.btn-highlight-alt.btn-lg.mtxl{:href => "https://github.com/elliotdahl/flex-grid-lite", :target => "_blank"}
         .icon
           =partial 'images/svg-lib/github.svg'
         View on Github
@@ -45,7 +45,7 @@ title: Flex Grid Lite
         The padding is built into the grid but can be removed with a modifier class. The padding itself is based on the
         %a{:href => "https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632", :target => "_blank"} 8 point grid system
         but can be modified in the
-        %a{:href => "https://github.com/", :target => "_blank"} variables
+        %a{:href => "https://github.com/elliotdahl/flex-grid-lite", :target => "_blank"} variables
         file.
 
       .grid.mbxl.sg-grid.grid-nogutter
@@ -447,38 +447,12 @@ title: Flex Grid Lite
       %p.margin-auto.type-md.mbn
         See more crazy ideas at
         %a{:href => "http://elliotdahl.com/", :target => "_blank"} elliotdahl.com
-  -# %section.pvxxxl
-  -#   .section-content.margin-auto.txt-c
-  -#     %h2 Experimental
-  -#     .grid.mvxl
-  -#       .col
-  -#         .sg-box
-  -#           .mono .col
-  -#       .col
-  -#         .sg-box
-  -#           .mono .col
-  -#     .grid.mvxl.sg-grid
-  -#       .col.col-grow-2
-  -#         col col-grow-2
-  -#       .col
-  -#         col
-  -#       .col
-  -#         col
-  -#     .grid.mvxl.sg-grid
-  -#       .col.col-6 50%
-  -#       .col.col-3 25%
-  -#       .col.col-3 25%
-  -#     .grid.mvxl.sg-grid
-  -#       .col.col-9
-  -#         3/4
-  -#       .col.col-3
-  -#         1/4
-  -#
-  -#
-  -#     .grid.mvxxxl
-  -#       .col
-  -#         .sg-box
-  -#           Etiam porta sem malesuada magna mollis euismod. Fusce
-  -#       .col
-  -#         .sg-box
-  -#           1/2?
+//Google Analytics Tracking
+:javascript
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-12878993-7', 'auto');
+  ga('send', 'pageview');
